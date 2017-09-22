@@ -1,0 +1,55 @@
+<div>
+
+    <input type="date" ng-model="dateOfJoining" autocomplete="on" class="form-control">
+    <button ng-click="finalized()" class="btn btn-info">Get records</button>
+
+    <div ng-show="locDetails">
+        <table class="table table-striped">
+            <tr>
+                <th>Commit Id</th>
+                <th>Inautix Email</th>
+                <th>Location</th>
+                <th>Location Assigned</th>
+                <th>Designation</th>
+                <th>Date of Joining</th>
+                <th>Weeks Pending</th>
+            </tr>
+            <tr ng-repeat="x in users">
+                <td>{{x.commitId}}</td>
+                <td>{{x.inautixEmail}}</td>
+                <td>{{x.location}}</td>
+                <td>{{x.locationAssigned}}</td>
+                <td>{{x.deignation}}</td>
+                <td>{{x.dateOfJoining}}</td>
+                <td>{{x.weeksPending}}</td>
+            </tr>
+        </table>
+        <button ng-click="locationAssignment()" class="btn btn-success">Assign Location</button>
+    </div>
+    <div ng-show="assignedLocDisplay">
+        Hi Guys
+        <table class="table table-striped">
+            <tr>
+                <th>Commit Id</th>
+                <th>Inautix Email</th>
+                <th>Location</th>
+                <th>Location Assigned</th>
+                <th>Designation</th>
+                <th>Datae of Joining</th>
+                <th>Weeks Pending</th>
+            </tr>
+            <tr ng-repeat="x in users">
+                <td>{{x.commitId}}</td>
+                <td>{{x.inautixEmail}}</td>
+                <td>{{x.location}}</td>
+                <td>{{x.locationAssigned}}</td>
+                <td>{{x.deignation}}</td>
+                <td>{{x.dateOfJoining}}</td>
+                <td>{{x.weeksPending}}</td>
+            </tr>
+        </table>
+    </div>
+    <!--  <script src="app1.js"></script> -->
+    </body>
+
+    </html>

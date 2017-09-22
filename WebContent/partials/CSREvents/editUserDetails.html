@@ -1,0 +1,69 @@
+<div>
+    <div class="container">
+        <div class="form-group">
+            <input type="text" ng-model="commitId" class="form-control">
+        </div>
+        <button class="btn btn-primary" ng-click="selecrUser()">Submit</button>
+        <button class="btn btn-danger" ng-click="deleteUser()">Delete</button>
+
+    </div>
+    <center>
+        <div ng-show="loading" ng-include="'partials/CSREvents/loader.html'"></div>
+    </center>
+    <div ng-show="view1" class="container">
+        <table class="table table-striped">
+            <tr>
+                <th>Commit ID</th>
+                <td>{{users[0].commitId}}</td>
+            </tr>
+            <tr>
+                <th>userName</th>
+                <td>{{userDetails[0].userName}}</td>
+            </tr>
+            <tr>
+                <th>Personal Email</th>
+                <td><input type="text" ng-model="userDetails[0].personalEmail" class="form-control" ng-disabled="access" /></td>
+            </tr>
+            <tr>
+                <th>Inautix Email</th>
+                <td>{{users[0].inautixEmail}}</td>
+            </tr>
+            <tr>
+                <th>Phone number</th>
+                <td><input type="text" ng-model="userDetails[0].phoneNumber" class="form-control" ng-disabled="access" /></td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td><input type="text" ng-model="userDetails[0].location" class="form-control" ng-disabled="access" /></td>
+            </tr>
+            <tr>
+                <th>Designation</th>
+                <td><input type="text" ng-model="users[0].deignation" class="form-control" ng-disabled="access" /></td>
+            </tr>
+            <tr>
+                <th>Date of Joining</th>
+                <td>{{users[0].dateOfJoining}}</td>
+            </tr>
+            <tr>
+                <th>Location assigned</th>
+                <td>{{users[0].locationAssigned}}</td>
+            </tr>
+            <tr>
+                <th>Weeks pending</th>
+                <td> {{users[0].weeksPending}}</td>
+            </tr>
+        </table>
+        <div class="form-group">
+            <button ng-click='editing()' ng-show="!viewSave" class="btn btn-info">Edit</button>
+            <button ng-click="cancelUpdating()" ng-show="viewSave" class="btn btn-warning">Cancel</button>
+            <button ng-click='updating()' ng-show="viewSave" class="btn btn-success">Save</button>
+        </div>
+
+    </div>
+    <div class="alert alert-success" ng-show="successDisplay">
+        <strong>Success!</strong> {{successMessage}}
+    </div>
+    <div class="alert alert-warning" ng-show="warningDisplay">
+        <strong>Warning!</strong> {{warningMessage}}
+    </div>
+</div>

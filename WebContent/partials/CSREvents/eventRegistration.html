@@ -1,0 +1,80 @@
+<style>
+    .container {
+        -moz-box-shadow: 0 0 2px black;
+        -webkit-box-shadow: 0 0 2px black;
+        box-shadow: 0 0 2px black;
+        padding: 10px;
+    }
+
+    input.ng-dirty.ng-invalid {
+        border-bottom: 2px solid red;
+    }
+
+    input.ng-dirty.ng-valid {
+        border-bottom: 2px solid lightgreen;
+    }
+
+    #wid {
+        padding: 100px;
+        border: 2px solid black;
+        -webkit-box-shadow: 10px 10px 5px grey;
+    }
+</style>
+<div class="container" id="wid">
+
+    <form name="myForm">
+        <h1>Event registration</h1>
+
+
+
+
+        <div class="form-group">
+            <label for="eventName">Event Name:  </label>
+
+
+            <input name="eventName" type="text" ng-model='eventName' id="eventName" autocomplete="on" class="form-control" ng-pattern="/^[a-zA-z]/" required/>
+
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="placeId">Place Id:  </label>
+            <select ng-model="selectedPlaceId" id="placeId" class="form-control" required>
+					<option ng-repeat="x in places">{{x.placeId}},{{x.name}}</option>
+					</select>
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="description">Description:  </label>
+            <textarea name="description" type="text" ng-model='description' id="description" autocomplete="on" class="form-control" ng-pattern="/^[a-zA-z]/" required rows="5" cols="50"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="eventDate">Event Date: </label>
+
+            <input type="date" ng-model="eventDate" autocomplete="on" id="eventDate" class="form-control" required/>
+        </div>
+        <div class="form-group">
+            <label for="eventLead">Event Lead: </label>
+
+
+            <input type="text" ng-model="eventLead" autocomplete="on" id="eventLead" class="form-control" ng-pattern="/^[a-zA-z]/" required/>
+        </div>
+
+
+
+    </form>
+    <p><button ng-click="myClick(eventName,description,eventDate,eventLead)" class="btn btn-primary" ng-disabled="myForm.$invalid">Register</button>
+
+        <div ng-show="sucess" ng-include="'partials/CSREvents/loader.html'"></div>
+        <div class="alert alert-success" ng-show="successDisplay">
+            <strong>Success!</strong> {{message}}
+            </body>
+            <div class="alert alert-warning" ng-show="warningDisplay">
+                <strong>Warning!</strong> {{message}}
+            </div>
+
+        </div>

@@ -1,0 +1,35 @@
+<div>
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="place_name">Commit ID:</label>
+                <input type="text" ng-model="id" autocomplete="on" id="place_name" class="form-control" /><br/>
+            </div>
+        </form>
+
+        <div ng-show="view">
+
+            <table class="table table-striped" style="cursor:default;">
+                <tr>
+                    <th ng-click="orderByThis('commitId')"> commitID</th>
+                    <th ng-click="orderByThis('inautixEmail')"> Inautix Email</th>
+                    <th ng-click="orderByThis('locationAssigned')"> Location Assigned</th>
+                    <th ng-click="orderByThis('deignation')"> Designation</th>
+                    <th ng-click="orderByThis('dateOfJoining')"> Date of joining</th>
+                    <th ng-click="orderByThis('weeksPending')"> Weeks pending</th>
+                </tr>
+
+                <tr ng-repeat="x in users | orderBy:order | filter:id">
+                    <td>{{x.commitId | uppercase}}</td>
+                    <td>{{x.inautixEmail}}</td>
+                    <td>{{x.locationAssigned}}</td>
+                    <td>{{x.deignation}}</td>
+                    <td>{{x.dateOfJoining | limitTo: 10}}</td>
+                    <td> {{x.weeksPending}}</td>
+                </tr>
+            </table>
+        </div>
+        <div ng-show="loading" ng-include="'partials/CSREvents/loader.html'"></div>
+
+    </div>
+</div>

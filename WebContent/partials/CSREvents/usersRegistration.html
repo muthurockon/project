@@ -1,0 +1,88 @@
+<style>
+    .container {
+        -moz-box-shadow: 0 0 2px black;
+        -webkit-box-shadow: 0 0 2px black;
+        box-shadow: 0 0 2px black;
+        padding: 10px;
+    }
+
+    input.ng-dirty.ng-invalid {
+        border-bottom: 2px solid red;
+    }
+
+    input.ng-dirty.ng-valid {
+        border-bottom: 2px solid lightgreen;
+    }
+</style>
+<div class="container" id="wid">
+
+    <form name="myForm">
+        <h1>User registration</h1>
+        <div class="form-group">
+            <label for="commitId">Commit ID: </label>
+
+
+            <input type="text" ng-model="commitId" autocomplete="on" id="commit_Id" class="form-control" ng-pattern="/^[xX][bB][bB][a-zA-z0-9]{4}$/" required /><br/>
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="userInatutixEmailId">Inautix Email:  </label>
+
+
+
+            <input type="email" ng-model="userInatutixEmailId" autocomplete="on" id="user_Inatutix_EmailId" class="form-control" required/><br/>
+        </div>
+
+        <div class="form-group">
+            <label for="designation"> Designation:  </label>
+            <select ng-model="selectedDesignation" id="designation" class="form-control" required>
+					<option ng-repeat="x in designation">{{x}}</option>
+					</select>
+        </div>
+
+        <div class="form-group">
+            <label for="doj">Date of Joining: </label>
+
+            <input type="date" ng-model="dateOfJoining" autocomplete="on" id="doj" class="form-control" required/>
+        </div>
+        <div class="form-group">
+            <label for="uname">User name: </label>
+
+
+            <input type="text" ng-model="userName" autocomplete="on" id="uname" class="form-control" ng-pattern="/^[a-zA-z ]+$/" required/>
+        </div>
+        <div class="form-group">
+            <label for="personalEmail">Personal email:  </label>
+
+
+            <input type="email" ng-model="personalEmail" autocomplete="on" id="personalEmail" class="form-control" required/>
+        </div>
+        <div class="form-group">
+            <label for="phno"> Phone number:  </label>
+
+
+            <input type="number" ng-model="phoneNumber" id="phno" autocomplete="on" class="form-control" ng-pattern="/^[789][0-9]{9}$/" required/>
+        </div>
+        <div class="form-group">
+            <label for="from">Location: </label>
+
+
+
+            <input id="from" type="text" ng-model="address" placeholder="Type Address" autocomplete="off" size="50" class="form-control" required/>
+
+        </div>
+
+
+    </form>
+    <p><button ng-click="myClick(commitId,userInatutixEmailId,dateOfJoining,userName,personalEmail,phoneNumber,ad)" class="btn btn-primary" ng-disabled="myForm.$invalid">Register</button>
+        <div ng-show="sucess" ng-include="'partials/CSREvents/loader.html'"></div>
+        <div class="alert alert-success" ng-show="successDisplay">
+            <strong>Success!</strong> {{message}}
+            </body>
+            <div class="alert alert-warning" ng-show="warningDisplay">
+                <strong>Warning!</strong> {{message}}
+            </div>
+
+        </div>

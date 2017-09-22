@@ -1,0 +1,60 @@
+<!-- <!DOCTYPE html>
+
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA5Lk1aQ2AOn3ryo2RXgakfrDXNcSWTotU&libraries=places&sensor=false"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body> -->
+<div>
+    <style>
+        .container {
+            -moz-box-shadow: 0 0 2px black;
+            -webkit-box-shadow: 0 0 2px black;
+            box-shadow: 0 0 2px black;
+            padding: 10px;
+        }
+
+        input.ng-dirty.ng-invalid {
+            border-bottom: 2px solid red;
+        }
+
+        input.ng-dirty.ng-valid {
+            border-bottom: 2px solid lightgreen;
+        }
+    </style>
+    <div class="container">
+        <h1>Place registration</h1>
+
+        <form name="placeForm">
+            <div class="form-group">
+                <label for="place_name">Place name:</label>
+                <input type="text" ng-model="placeName" autocomplete="on" id="place_name" class="form-control" ng-pattern="/^[a-zA-z\\s]+$/" required /><br/>
+            </div>
+            <!-- "/^[xX][bB]{2}[a-zA-z]{4}$/" -->
+            <div class="form-group">
+                <label for="contact_number">Contact Number :</label>
+                <input type="text" ng-model="number" autocomplete="on" id="contact_number" class="form-control" ng-pattern="/^[789][0-9]{9}$/" required/><br/>
+            </div>
+            <div class="form-group">
+                <label for="from">Address :</label>
+                <input id="from" type="text" ng-model="address" placeholder="Type Address" autocomplete="off" size="50" class="form-control" required/>
+            </div>
+            <div class="form-group">
+                <label for="locality">Loaclity  :</label>
+                <input type="text" ng-model="user.from" autocomplete="on" disabled id="locality" class="form-control" /><br/>
+                <div class="form-group">
+                    <!--  {{user.from}}{{place_start}} -->
+                    <button ng-click="register()" class="btn btn-default" ng-disabled="placeForm.$invalid">Register</button><br/> {{message}}
+        </form>
+
+        </div>
+        </div>
+        <!-- </body>
+</hml> -->

@@ -1,0 +1,49 @@
+<div>
+
+
+    <!-- <table >
+		<tr>
+			<td>PlaceId</td>
+			<td>Place name</td>
+			<td>Address</td>
+			<td>Location</td>
+			<td>Contact number</td>
+		</tr>
+		<tr ng-repeat="place in places">
+			<td>{{place.placeId}}</td>
+			<td>{{place.name}}</td>
+			<td>{{place.address}}</td>
+			<td>{{place.location}}</td>
+			<td>{{place.contactNumber}}</td>
+		</tr>
+	</table> -->
+
+
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="place_name">Place name:</label>
+                <input type="text" ng-model="placeName" autocomplete="on" id="place_name" class="form-control" /><br/>
+            </div>
+        </form>
+    </div>
+    <center>
+        <div ng-show="loading" ng-include="'partials/CSREvents/loader.html'"></div>
+    </center>
+    <div class="container">
+        <div class="panel panel-primary" ng-repeat="place in places | filter:placeName">
+            <div class="panel-heading">{{place.name }}</div>
+            <div class="panel-body">
+                <ul>
+                    <li>PlaceId:{{place.placeId}}</li>
+                    <li>Place name:{{place.name}}</li>
+                    <li>Address:{{place.address}}</li>
+                    <li>Contact number:{{place.contactNumber}}</li>
+                </ul>
+            </div>
+
+            <div class="panel-footer">Location:{{place.location}}</div>
+        </div>
+    </div>
+    <!-- {{status}} -->
+</div>

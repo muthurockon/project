@@ -1,0 +1,41 @@
+<div>
+    <ng-int viewSave='false' />
+    <div class="container">
+        <div class="form-group">
+            <label for="place_name">Commit ID:</label>
+            <input type="text" ng-model="id" autocomplete="on" id="place_name" class="form-control" /><br/>
+        </div>
+        <div ng-show="loading" ng-include="'partials/CSREvents/loader.html'"></div>
+        <div ng-show="viewAttrendence">
+
+            <table class="table table-hover">
+                <tr>
+                    <th ng-click="orderByThis('commitId')">Commit ID</th>
+                    <th ng-click="orderByThis('inautixEmail')">Inautix Email</th>
+                    <th ng-click="orderByThis('locationAssigned')">Location Assigned</th>
+                    <th ng-click="orderByThis('deignation')">Designation</th>
+                    <th ng-click="orderByThis('dateOfJoining')">Date of Joining</th>
+                    <th ng-click="orderByThis('weeksPending')">Weeks Pending</th>
+                    <th>Present</th>
+                    <th>Absent</th>
+                </tr>
+                <tr ng-repeat="x in users | orderBy:order | filter:id">
+                    <td>{{x.commitId | uppercase}}</td>
+                    <td>{{x.inautixEmail}}</td>
+                    <td>{{x.locationAssigned}}</td>
+                    <td>{{x.deignation}}</td>
+                    <td>{{x.dateOfJoining | limitTo: 10}}</td>
+                    <td> {{x.weeksPending}}</td>
+                    <td><input type="radio" id="{{x.commitId}}p" name="{{x.commitId}}" value="1" ng-model="selectVal" /></td>
+                    <td><input type="radio" id="{{x.commitId}}a" name="{{x.commitId}}" value="0" ng-model="selectVal" /></td>
+                </tr>
+            </table>
+            <div ng-show="loading" ng-include="'partials/CSREvents/loader.html'"></div>
+            <button ng-click="submitAttendence()" class="btn btn-success">Submit</button>
+        </div>
+        <div ng-show="sucess" ng-include="'partials/CSREvents/loader.html'"></div>
+        <div class="alert alert-success" ng-show="successDisplay">
+            <strong>Success!</strong> {{message}}
+            </body>
+        </div>
+    </div>
